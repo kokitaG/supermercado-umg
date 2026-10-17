@@ -87,4 +87,30 @@ npm start
 - **Comando para probar conexión**:
   ```bash
   python -c "from app.db import engine; from sqlalchemy import text; conn=engine.connect(); print(conn.execute(text('select 1')).scalar()); conn.close()"
-  ```
+  
+
+
+  @'
+# Supermercado UMG
+
+## Descripción General
+Sistema de gestión comercial e inventario desarrollado para el curso de Desarrollo Web. Permite el control de ventas, facturación, compras, inventario, catálogos maestros y reportes analíticos.
+
+## Tecnologías Utilizadas
+- **Frontend:** Angular, TypeScript, CSS3 / HTML5
+- **Backend:** Python, FastAPI, SQLAlchemy
+- **Base de Datos:** PostgreSQL / Supabase Cloud
+- **Control de Versiones y Calidad:** Git, GitHub, SonarQube Cloud
+
+## Requisitos Previos
+- Node.js y npm
+- Python 3.x
+- Git
+
+## Instrucciones de Instalación y Ejecución
+
+### 1. Configuración del Frontend
+```bash
+cd frontend
+npm install
+npm start
