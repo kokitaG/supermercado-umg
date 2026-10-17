@@ -6,3 +6,17 @@ __pycache__/
 node_modules/
 frontend/node_modules/
 .scannerwork/
+
+
+# Angular / Node
+node_modules/
+dist/
+.angular/
+
+# Python / FastAPI
+__pycache__/
+*.pyc
+.venv/
+venv/
+env/
+.env
