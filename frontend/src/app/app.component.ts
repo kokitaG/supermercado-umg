@@ -10,7 +10,7 @@ import { ApiService } from './services/api.service';
   imports: [CommonModule, RouterOutlet, RouterLink, RouterLinkActive],
   template: `
     <div class="app-container" *ngIf="isLoggedIn(); else loginView">
-      <!-- SIDEBAR MENÚ PRINCIPAL REQUERIDO -->
+      <!-- SIDEBAR MENÚ PRINCIPAL -->
       <aside class="sidebar">
         <div class="brand">
           <div class="brand-icon">
@@ -117,6 +117,22 @@ import { ApiService } from './services/api.service';
         </header>
 
         <section class="content-body">
+          <!-- ========================================================
+               MODIFICACIÓN 1 Y 2: BANNER, ENCABEZADO Y ELEMENTOS VISUALES
+               ======================================================== -->
+          <div class="banner-lab-git">
+            <!-- Modificación 1: Encabezado destacado (0.5 pts) -->
+            <h1 class="titulo-lab">Supermercado UMG - Versión Laboratorio Git</h1>
+
+            <!-- Modificación 2: Elementos visuales nuevos (Badge + Botón) (0.5 pts) -->
+            <div class="elementos-lab">
+              <span class="badge-lab">Rama: main / Verificado</span>
+              <button type="button" class="btn-lab" (click)="verificarEstadoLab()">
+                <i class="ri-shield-check-line"></i> Test Git Activo
+              </button>
+            </div>
+          </div>
+
           <router-outlet></router-outlet>
         </section>
       </main>
@@ -126,7 +142,66 @@ import { ApiService } from './services/api.service';
     <ng-template #loginView>
       <router-outlet></router-outlet>
     </ng-template>
-  `
+  `,
+  /* ========================================================
+     MODIFICACIÓN 3: ESTILOS CSS DEL BANNER Y BOTÓN (0.5 pts)
+     ======================================================== */
+  styles: [`
+    .banner-lab-git {
+      background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+      border: 2px solid #3b82f6;
+      border-radius: 12px;
+      padding: 1.25rem 1.75rem;
+      margin-bottom: 1.75rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.4);
+    }
+    .titulo-lab {
+      color: #60a5fa;
+      font-size: 1.45rem;
+      font-weight: 700;
+      margin: 0;
+      letter-spacing: -0.3px;
+    }
+    .elementos-lab {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+    }
+    .badge-lab {
+      background-color: rgba(16, 185, 129, 0.2);
+      color: #34d399;
+      border: 1px solid rgba(16, 185, 129, 0.4);
+      font-size: 0.78rem;
+      font-weight: 600;
+      padding: 0.35rem 0.75rem;
+      border-radius: 9999px;
+      text-transform: uppercase;
+    }
+    .btn-lab {
+      background-color: #2563eb;
+      color: #ffffff;
+      border: none;
+      padding: 0.5rem 1.1rem;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: all 0.2s ease;
+    }
+    .btn-lab:hover {
+      background-color: #1d4ed8;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.35);
+    }
+  `]
 })
 export class AppComponent implements OnInit {
   dbStatus = {
@@ -157,6 +232,10 @@ export class AppComponent implements OnInit {
       this.router.navigate(['/login']);
     }
     this.checkDbHealth();
+  }
+
+  verificarEstadoLab(): void {
+    alert('¡Laboratorio Git UMG verificado y funcionando correctamente!');
   }
 
   checkDbHealth(): void {
