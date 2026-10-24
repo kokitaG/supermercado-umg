@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout del código
+      - name: Checkout del codigo
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
@@ -32,6 +32,10 @@ jobs:
           pytest backend/tests --cov=backend/app --cov-report=xml:coverage.xml
 
       - name: Ejecutar SonarQube Cloud Scan
-        uses: SonarSource/sonarqube-scan-action@v5
+        uses: SonarSource/sonarqube-scan-action@master
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        with:
+          args: >
+            -Dsonar.organization=kokitag
+            -Dsonar.projectKey=kokitaG_supermercado-umg
