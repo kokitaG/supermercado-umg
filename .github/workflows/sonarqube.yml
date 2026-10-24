@@ -39,3 +39,4 @@ jobs:
           args: >
             -Dsonar.organization=kokitag
             -Dsonar.projectKey=kokitaG_supermercado-umg
+            -Dsonar.branch.name=desarrollo
