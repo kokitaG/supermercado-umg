@@ -20,3 +20,7 @@ __pycache__/
 venv/
 env/
 .env
+backend/.env
+backend/supermercado.db
+.angular/
+frontend/.angular/
